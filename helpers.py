@@ -16,11 +16,7 @@ parser.add_argument(
     default="gpt-4o-mini",
     choices=[
         'gpt-4o-mini',
-        'gpt-4o-2024-08-06',
         'gpt-4o',
-        'gpt-4',
-        'gpt-4-turbo',
-        'gpt-3.5-turbo',
         'llama3.1',  # ollama
     ],
     help="The model to use (optional)"
@@ -40,6 +36,8 @@ parser.add_argument(
         'translate to french',
         'translate to hungarian',
         'generate a filename',
+        'upgrade english',
+        'remaster the conversation',
     ],
     help="The mode to response to the prompt (optional)"
 )

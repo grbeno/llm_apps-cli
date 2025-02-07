@@ -9,6 +9,9 @@ conversations/
 playground.py
 docs/
 
+test-cmd.bat
+test-cmd.sh
+
 # testing
 /coverage
 

@@ -10,12 +10,9 @@ https://python.langchain.com/v0.2/docs/integrations/llms/ollama/
 ## Tried models, looks good
 python chat.py --m '<model>'
 
+# Models
 'gpt-4o-mini'  # default
-'gpt-4o-2024-08-06'
 'gpt-4o'
-'gpt-4'
-'gpt-4-turbo'
-'gpt-3.5-turbo'
 'llama3.1'  # ollama
 
 ## Planned models
@@ -70,3 +67,7 @@ add empty row
 
 ## Close venv
 deactivate
+
+# Run batch on windows
+cd '<dir>'
+./test-cmd.bat

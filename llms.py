@@ -8,17 +8,18 @@ from langchain_ollama.llms import OllamaLLM
 
 from prompts import custom_prompts
 
-
 class Llms():
     """Selects the model from OpenAI or Hugging Face."""
+    
+    __openai_api_key = os.environ.get("OPENAI_API_KEY")
     
     def __init__(self, model: str) -> None:
         self.model = model
 
-    def openai(self) -> callable:
+    def openai_gpt(self) -> callable:
         """Selects the model from OpenAI."""
         return ChatOpenAI(
-            api_key=os.environ.get("OPENAI_API_KEY"),
+            api_key=Llms.__openai_api_key,
             model=self.model,
             max_tokens=256,
             temperature=0.7,
@@ -41,7 +42,7 @@ class Llms():
     def get_model(self):
         """Selects the model."""
         if 'gpt' in self.model:
-            return self.openai()
+            return self.openai_gpt()
         else:
             #return self.hugging_face()
             return self.ollama()
@@ -71,5 +72,5 @@ class ChatContext(Llms):
             ),
             ("human", self.get_content()),  # should not be list!
         ]
-        return self.openai().invoke(create_title).content
+        return self.openai_gpt().invoke(create_title).content
     

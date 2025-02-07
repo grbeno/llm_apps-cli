@@ -25,20 +25,20 @@ args = parser.parse_args()
 model = args.m
 role = args.r
 
-
 """ Apply the model """
 
 llm = Llms(model)
+openai = llm.openai_gpt()
 model = llm.get_model()
 selected_model = getattr(llm, 'model')
 
 print(f"\n{Fore.LIGHTBLUE_EX}{Style.NORMAL}Model: {selected_model}")
 print(f"{Fore.LIGHTBLUE_EX}{Style.NORMAL}Role: {role}")
 
-system_prompt = f""" You are helpful, creative, clever, and very friendly assistant. {custom_prompts[role]} """  # Change this role to whatever you want
+system_prompt = f" You are helpful, creative, clever, and very friendly assistant. {custom_prompts[role]}"  # Change this role to whatever you want.
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", system_prompt),
+    ("user", system_prompt),  # changed to user from system!
     MessagesPlaceholder(variable_name="history"),
     ("human", "{input}"),
 ])
@@ -76,7 +76,15 @@ async def chat_loop():
             config = {"configurable": {"session_id": "chat"}}
             for response in with_message_history.stream({"input": prompt}, config=config):
                 print(response, end='', flush=True)
-        
+            
+            # Translate the conversation to Hungarian if the role is correction
+            if 'correct' in role:
+                print('\n')
+                for message in store['chat'].messages:
+                    if isinstance(message, AIMessage):
+                        translation = openai.invoke(f"Translate to Hungarian: {message.content}").content
+                        print(f"{Fore.CYAN}{Style.NORMAL}Translation: {translation}")
+
         else: 
             # Generate remarks if the role is 'correct ...'
             try:
@@ -113,7 +121,7 @@ async def chat_loop():
                 print(f"Conversation saved to the file: {filename}.txt")
             
             break  # Exit the loop if the user enters an empty prompt
-
+            
 
 if __name__ == '__main__':
     try:
