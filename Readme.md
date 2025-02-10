@@ -1,6 +1,6 @@
 ## 🌱 LLM based AI-chat/assistants testing with Langchain on CLI
 
-:point_right: __Requirements: Python, and any API keys and functions you want; I am currently using openai_api_key, but tried langchain_api_key and huggingface_api_key. These last two aren't in use for now.__
+:point_right: __Requirements: Python, and any API keys and functions you want; I am currently using only the openai_api_key.__
 
 #### Set up a virtual environment in the selected project directory
 *You can use Pipenv; the Pipfile is attached in the repository.
@@ -32,14 +32,14 @@ You can select chat role as well. Default is: `short and concise`
 ```
 python chat.py --r "correct english"
 ```
-Other roles: `correct german` `translate to english` / german / spanish / french / hungarian
+Other roles: `correct german` `upgrade english`, `remaster the conversation` `translate to english/german/hungarian` or extend with what you need in `prompts.py` and `helpers.py`.
 
-End conversation: `add empty row <- push enter`
+End conversation: `empty prompt / press Enter`
 
 ---
 
 #### Ollama
-Download and install from Ollama's website to use it locally.
+Download and install from [Ollama's website](https://ollama.com/download) to use it locally.
 
 _pull a model_
 ```
@@ -66,7 +66,7 @@ OPENAI_API_KEY
 
 `shell_scripts/runapp.sh` on Linux
 
-##### Don't forget to add your path to the script files!
+##### Don't forget to add your project path to the script files!
 
 ---
 :point_right: More in [.app_info](https://github.com/grbeno/langchain-cmd/blob/main/.app_info)
