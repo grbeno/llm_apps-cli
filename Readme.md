@@ -13,6 +13,7 @@ _test a model_
 ollama run <model_name>
 ```
 #### Set up a virtual environment in the selected project directory
+#### *You can use Pipenv; the Pipfile is attached in the repository.
 ```
 python -m venv .venv
 ```
@@ -50,11 +51,16 @@ End conversation: `add empty row <- push enter`
 #.env
 
 OPENAI_API_KEY
-HUGGINGFACE_API_KEY
-
-# langchain/langsmith
-
-LANGCHAIN_API_KEY
-LANGCHAIN_TRACING
 ```
+
+---
+#### Using scripts
+
+`shell_scripts/runapp.bat` on Windows
+
+`shell_scripts/runapp.sh` on Linux
+
+##### Don't forget to add your path to the script files!
+
+---
 :point_right: More in .app_info

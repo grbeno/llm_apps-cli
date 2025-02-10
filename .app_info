@@ -13,7 +13,7 @@ python chat.py --m '<model>'
 # Models
 'gpt-4o-mini'  # default
 'gpt-4o'
-'llama3.1'  # ollama
+'llama3.1'  # ollama, better in chat
 
 ## Planned models
 'claude-3-5-sonnet-20240620'
@@ -33,41 +33,55 @@ python chat.py --r '<role>'
 
 ## Providers
 'openai'
-'huggingface'
+'huggingface'  # optional, project does not use it for now
 'ollama'
 
 ## .env
 
 OPENAI_API_KEY
-HUGGINGFACE_API_KEY
+HUGGINGFACE_API_KEY  # optional, project does not use it for now
 
-## langchain/langsmith
+## langchain/langsmith -> optional ...
 
 LANGCHAIN_API_KEY
+LANGCHAIN_TRACING
 
 ## Use
 
 ## Setup
 Select directory (cd) and create .env file
+
+# venv
 python -m venv .venv
 .venv/Scripts/activate  # Windows
 source .venv/bin/activate  # Linux
 pip install -r requirements.txt
 
+# Or use Pipenv
+pip install pipenv
+pipenv install -r requirements.txt
+pipenv shell
+
 ## Run
 python chat.py
-python chat.py --m '<model>'
+python chat.py --m '<model>' --r '<role>'
 
 ## Open a conversation file
 cd conversation
 cat <anyfile.txt>
 
 ## Exit
-add empty row
+empty prompt and press Enter
 
 ## Close venv
 deactivate
+# close pipenv
+exit
 
 # Run batch on windows
 cd '<dir>'
-./test-cmd.bat
+./runapp.bat
+
+# Run script on linux
+cd '<dir>'
+bash ./runapp.sh

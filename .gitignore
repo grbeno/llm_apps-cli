@@ -9,8 +9,10 @@ conversations/
 playground.py
 docs/
 
-test-cmd.bat
-test-cmd.sh
+*.bat
+*.sh
+!shell_scripts/*bat
+!shell_scripts/*sh
 
 # testing
 /coverage
@@ -115,7 +117,7 @@ ipython_config.py
 #   However, in case of collaboration, if having platform-specific dependencies or dependencies
 #   having no cross-platform support, pipenv may install dependencies that don't work, or not
 #   install all needed dependencies.
-#Pipfile.lock
+Pipfile.lock
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/

@@ -2,7 +2,7 @@ import os
 import json
 
 from langchain_openai import ChatOpenAI
-from langchain_huggingface import HuggingFaceEndpoint
+# from langchain_huggingface import HuggingFaceEndpoint
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_ollama.llms import OllamaLLM
 
@@ -25,15 +25,15 @@ class Llms():
             temperature=0.7,
         )
         
-    def hugging_face(self) -> callable:
-        """Selects the model from the Hugging Face model hub."""
-        return HuggingFaceEndpoint(
-            repo_id=self.model,
-            task="text-generation",
-            max_new_tokens=200,
-            do_sample=False,
-            huggingfacehub_api_token=os.environ.get("HUGGINGFACE_API_KEY"),
-        )
+    # def hugging_face(self) -> callable:
+    #     """Selects the model from the Hugging Face model hub."""
+    #     return HuggingFaceEndpoint(
+    #         repo_id=self.model,
+    #         task="text-generation",
+    #         max_new_tokens=200,
+    #         do_sample=False,
+    #         huggingfacehub_api_token=os.environ.get("HUGGINGFACE_API_KEY"),
+    #     )
     
     def ollama(self) -> callable:
         """Selects the model from OpenAI."""

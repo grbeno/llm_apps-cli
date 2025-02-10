@@ -4,7 +4,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import BaseChatMessageHistory, InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_core.messages import AIMessage
+from langchain_core.messages import AIMessage, HumanMessage
 
 from dotenv import load_dotenv
 from colorama import init, Fore, Style
@@ -78,12 +78,15 @@ async def chat_loop():
                 print(response, end='', flush=True)
             
             # Translate the conversation to Hungarian if the role is correction
-            if 'correct' in role:
+            if 'correct' in role or 'upgrade' in role:
                 print('\n')
-                for message in store['chat'].messages:
-                    if isinstance(message, AIMessage):
-                        translation = openai.invoke(f"Translate to Hungarian: {message.content}").content
-                        print(f"{Fore.CYAN}{Style.NORMAL}Translation: {translation}")
+                latest_ai_message = store['chat'].messages[-1].content  # for message in store['chat'].messages: isinstance(message, AIMessage)
+                latest_human_message = store['chat'].messages[-2].content # ... isinstance(message, HumanMessage)
+                if store['chat'].messages[-1].content == 'Your English is correct.':
+                    translation = openai.invoke(f"Translate to Hungarian: {latest_human_message}").content
+                else:
+                    translation = openai.invoke(f"Translate to Hungarian: {latest_ai_message}").content
+                print(f"{Fore.CYAN}{Style.NORMAL}Translation: {translation}")
 
         else: 
             # Generate remarks if the role is 'correct ...'
@@ -92,7 +95,7 @@ async def chat_loop():
             except KeyError:  # This error occurs if the user provides an empty row as the first prompt.
                 break
             else:
-                if 'correct' in role:
+                if 'correct' in role or 'upgrade' in role:
                     remarks = ChatContext(conversation, 'provide remarks').generate()
                     print(f"\nRemarks:\n{remarks}")
                 else:
