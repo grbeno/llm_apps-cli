@@ -1,6 +1,6 @@
 ## 🌱 LLM based AI-chat testing with Langchain on CLI
 
-:point_right: __Requirements: Python, and any API keys and functions you want; I am currently using openai_api_key, langchain_api_key and huggingface_api_key.__
+:point_right: __Requirements: Python, and any API keys and functions you want; I am currently using openai_api_key, but tried langchain_api_key and huggingface_api_key. These last two aren't in use for now__
 #### Ollama
 Download and install from Ollama's website to use it locally.
 
@@ -13,7 +13,7 @@ _test a model_
 ollama run <model_name>
 ```
 #### Set up a virtual environment in the selected project directory
-#### *You can use Pipenv; the Pipfile is attached in the repository.
+*You can use Pipenv; the Pipfile is attached in the repository.
 ```
 python -m venv .venv
 ```
