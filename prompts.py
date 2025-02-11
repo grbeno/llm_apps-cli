@@ -1,7 +1,7 @@
 # Description: This file contains the prompts that are used to guide the user in their responses.
 # Consider setting max_token in llms.py
 
-# Good prompt: concise role + expected answer
+# Good prompt: concise role + expected answer, in English
 
 custom_prompts = { 
     
@@ -12,7 +12,7 @@ custom_prompts = {
     # grammatical correction
     
     "correct english" : "Your response should be the correction of the given prompt. If the prompt is already correct, respond with 'Your english is correct'.",
-    "correct german" : "Ihre Antwort sollte die Korrektur des gegebenen Anliegens sein. Wenn das Anliegend bereits korrekt ist, antworten Sie mit 'Ihr Deutsch ist korrekt'.",
+    "correct german" : "Your response should be the correction of the given prompt. If the prompt is already correct, respond with 'Ihr Deutsch ist korrekt'.",
     
     # translation
 

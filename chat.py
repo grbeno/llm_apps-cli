@@ -82,8 +82,10 @@ async def chat_loop():
                 print('\n')
                 latest_ai_message = store['chat'].messages[-1].content  # for message in store['chat'].messages: isinstance(message, AIMessage)
                 latest_human_message = store['chat'].messages[-2].content # ... isinstance(message, HumanMessage)
-                if store['chat'].messages[-1].content == 'Your English is correct.':
+                if 'is correct' in store['chat'].messages[-1].content:
                     translation = openai.invoke(f"Translate to Hungarian: {latest_human_message}").content
+                elif 'ist korrekt' in store['chat'].messages[-1].content:
+                    translation = openai.invoke(f"Übersetze ins Ungarische: {latest_human_message}").content
                 else:
                     translation = openai.invoke(f"Translate to Hungarian: {latest_ai_message}").content
                 print(f"{Fore.CYAN}{Style.NORMAL}Translation: {translation}")
