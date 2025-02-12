@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-cd /d "<path>"
+cd /d "."
 
 :: Initialize variables with default values
 set ROLE="short and concise"

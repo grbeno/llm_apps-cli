@@ -25,7 +25,7 @@ python chat.py --m '<model>'
 'meta-llama/Meta-Llama-3-8B-Instruct'
 
 ## Role
-python chat.py --r '<role>'
+langapp --r '<role>'
 
 'short and concise'  # default
 'correct english'
@@ -57,15 +57,17 @@ python -m venv .venv
 .venv/Scripts/activate  # Windows
 source .venv/bin/activate  # Linux
 pip install -r requirements.txt
+pip install .  # Install langapp
 
 # Or use Pipenv
 pip install pipenv
 pipenv install -r requirements.txt
-pipenv shell
+pipenv shell | pipenv run langapp
+pip install .  # Install langapp
 
 ## Run
-python chat.py
-python chat.py --m '<model>' --r '<role>'
+langapp
+langapp --m '<model>' --r '<role>'
 
 ## Open a conversation file
 cd conversation

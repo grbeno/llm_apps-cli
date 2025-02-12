@@ -1,7 +1,7 @@
 #!/bin/bash
-# Change the working directory to the directory where the script is located
 
-cd "<path>"
+# Change the working directory to the directory where the script is located
+cd "."
 
 # Initialize variables with default values
 

@@ -19,18 +19,22 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+#### Install langapp
+```
+pip install .
+```
 ---
 Default model `gpt-4o-mini` from OpenAI.
 ```
-python chat.py
+langapp
 ```
 You can select other models: `llama3.1` from Ollama.
 ```
-python chat.py --m llama3.1
+langapp --m llama3.1
 ```
 You can select chat role as well. Default is: `short and concise`
 ```
-python chat.py --r "correct english"
+langapp --r "correct english"
 ```
 Other roles: `correct german` `upgrade english`, `remaster the conversation` `translate to english/german/hungarian` or extend with what you need in `prompts.py` and `helpers.py`.
 

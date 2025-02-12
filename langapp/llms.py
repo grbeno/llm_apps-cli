@@ -6,7 +6,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_ollama.llms import OllamaLLM
 
-from prompts import custom_prompts
+from langapp.prompts import custom_prompts
 
 class Llms():
     """Selects the model from OpenAI or Hugging Face."""
