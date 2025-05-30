@@ -11,9 +11,12 @@ def main():
         "--m",
         default="gpt-4o-mini",
         choices=[
+            # OpenAI models
             'gpt-4o-mini',
             'gpt-4o',
-            'llama3.1',  # ollama
+            # Ollama models
+            'llama3.1',
+            'deepseek-r1',
         ],
         help="The model to use (optional)"
     )

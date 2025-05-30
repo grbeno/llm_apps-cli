@@ -9,6 +9,7 @@ colorama = "*"
 python-dotenv = "*"
 langchain-openai = "*"
 langchain-ollama = "*"
+langapp = {file = "."}
 
 [dev-packages]
 

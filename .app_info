@@ -15,6 +15,7 @@ python chat.py --m '<model>'
 'gpt-4o-mini'  # default
 'gpt-4o'
 'llama3.1'  # ollama, better in chat
+'deepseek-r1'  # ollama, better in chat
 
 ## Planned models
 'claude-3-5-sonnet-20240620'

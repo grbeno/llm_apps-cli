@@ -36,7 +36,7 @@ class Llms():
     #     )
     
     def ollama(self) -> callable:
-        """Selects the model from OpenAI."""
+        """Selects the model from Ollama."""
         return OllamaLLM(model=self.model)
         
     def get_model(self):

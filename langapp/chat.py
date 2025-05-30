@@ -21,7 +21,6 @@ init()
 load_dotenv()
 
 class Llmlang():
-
     def __init__(self, openai: callable, model: callable, role: str, selected_model: str) -> None:
         self.openai = openai
         self.model = model
