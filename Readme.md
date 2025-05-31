@@ -28,7 +28,7 @@ Default model `gpt-4o-mini` from OpenAI.
 ```
 langapp
 ```
-You can select other models, such as `llama3.1`, from Ollama after installing and setting it up.
+You can select other models, such as `llama3.1` or `deepseek-r1` from Ollama after installing and setting it up.
 ```
 langapp --m llama3.1
 ```
@@ -45,13 +45,9 @@ End conversation: `empty prompt / press Enter`
 #### :small_blue_diamond: Ollama
 Download and install from [Ollama's website](https://ollama.com/download) to use it locally.
 
-_pull a model_
-```
-ollama pull <model_name>
-```
 _test a model_
 ```
-ollama run <model_name>
+ollama run <model_name>:<param>b
 ```
 In the case of using an open-source model from Ollama, you need to run the command before the LangChain's `OllamaLLM` instance handles it.
 
