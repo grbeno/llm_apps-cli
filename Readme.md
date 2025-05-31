@@ -2,8 +2,7 @@
 
 :point_right: __Requirements: Python, and any API keys and functions you want; I am currently using only the openai_api_key.__
 
-#### Set up a virtual environment in the selected project directory
-*You can use Pipenv; the Pipfile is attached in the repository.
+#### :small_blue_diamond: Create and activate a virtual environment in the preferred project directory
 ```
 python -m venv .venv
 ```
@@ -15,20 +14,21 @@ python -m venv .venv
 ```
 source venv/bin/activate
 ```
-#### Install dependencies
+#### :small_blue_diamond: Install dependencies
 ```
 pip install -r requirements.txt
 ```
-#### Install langapp
+#### Install/build langapp
 ```
 pip install .
 ```
 ---
+#### :small_blue_diamond: How to use
 Default model `gpt-4o-mini` from OpenAI.
 ```
 langapp
 ```
-You can select other models: `llama3.1` from Ollama.
+You can select other models, such as `llama3.1`, from Ollama after installing and setting it up.
 ```
 langapp --m llama3.1
 ```
@@ -42,7 +42,7 @@ End conversation: `empty prompt / press Enter`
 
 ---
 
-#### Ollama
+#### :small_blue_diamond: Ollama
 Download and install from [Ollama's website](https://ollama.com/download) to use it locally.
 
 _pull a model_
@@ -53,10 +53,11 @@ _test a model_
 ```
 ollama run <model_name>
 ```
+In the case of using an open-source model from Ollama, you need to run the command before the LangChain's `OllamaLLM` instance handles it.
 
 ---
 
-#### Environment variables
+#### :small_blue_diamond: Environment variables
 ```
 #.env
 
@@ -64,7 +65,7 @@ OPENAI_API_KEY
 ```
 
 ---
-#### Using scripts
+#### :small_blue_diamond: Using scripts
 
 `shell_scripts/runapp.bat` on Windows
 
