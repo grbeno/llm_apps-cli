@@ -4,7 +4,8 @@ import json
 from langchain_openai import ChatOpenAI
 # from langchain_huggingface import HuggingFaceEndpoint
 from langchain_core.messages import AIMessage, HumanMessage
-from langchain_ollama.llms import OllamaLLM
+#from langchain_ollama.llms import OllamaLLM
+from langchain_ollama import ChatOllama
 
 from langapp.prompts import custom_prompts
 
@@ -37,7 +38,12 @@ class Llms():
     
     def ollama(self) -> callable:
         """Selects the model from Ollama."""
-        return OllamaLLM(model=self.model)
+        #return OllamaLLM(model=self.model)
+        return ChatOllama(
+            model=self.model,
+            max_tokens=256,
+            temperature=0.7,
+        )
         
     def get_model(self):
         """Selects the model."""

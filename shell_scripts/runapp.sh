@@ -79,7 +79,7 @@ run_app() {
     # Activate the virtual environment and run the application
     source venv/bin/activate
     VENV_ACTIVATED=1
-    python3 chat.py --m "$MODEL" --r "$ROLE"
+    langapp --m "$MODEL" --r "$ROLE"
     menu
 }
 

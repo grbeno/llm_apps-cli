@@ -1,14 +1,14 @@
-## 🌱 LLM based AI-chat/assistants testing with Langchain on CLI
+## 🌱 Langapp: LLM based AI-chat/assistants testing with Langchain on CLI
 
 :point_right: __Requirements: Python, and any API keys and functions you want; I am currently using only the openai_api_key.__
 
 #### :small_blue_diamond: Create and activate a virtual environment in the preferred project directory
 ```
-python -m venv .venv
+python -m venv venv
 ```
 ##### On Windows
 ```
-.venv/Scripts/activate
+venv/Scripts/activate
 ```
 ##### On Linux or Mac
 ```
@@ -49,7 +49,7 @@ _test a model_
 ```
 ollama run <model_name>:<param>b
 ```
-In the case of using an open-source model from Ollama, you need to run the command before the LangChain's `OllamaLLM` instance handles it.
+In the case of using an open-source model from Ollama, you need to run the command before using Langapp.
 
 ---
 

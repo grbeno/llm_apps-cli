@@ -89,3 +89,8 @@ cd '<dir>'
 # Run script on linux
 cd '<dir>'
 bash ./runapp.sh
+
+# Building the app after changes
+pip install .
+# Update requirements.txt
+pip freeze | findstr /V /I "^langapp" > requirements.txt 

@@ -73,9 +73,9 @@ if "%ROLE_CHOICE%"=="7" set ROLE="remaster the conversation"
 goto menu
 
 :run_app
-call .venv/Scripts/activate
+call venv/Scripts/activate
 set VENV_ACTIVATED=1
-python chat.py --m %MODEL% --r %ROLE%
+langapp --m %MODEL% --r %ROLE%
 goto menu
 
 :safe_exit
